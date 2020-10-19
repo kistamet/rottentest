@@ -75,7 +75,7 @@
     font-weight: bold;
     color: maroon;
   }
-  h1.titlemovie{ 
+  div#app_banner.banner {
     margin: 0 0 1em;
     padding: 10px;
     background-color: orange;
@@ -83,4 +83,4 @@
     border-bottom: 4px solid gold;
     font-size: 2em;
     font-style: normal;
-  }
+}

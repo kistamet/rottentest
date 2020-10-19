@@ -14,22 +14,10 @@ class MoviesController < ApplicationController
     # default : render 'new ' template
   end
 
-  def create
+ def create
     user_params = params.require(:movie).permit(:title,:rating,:release_date,:description)
-
-    movie_1 = {:title => 'test', :rating => 'G',
-      :release_date => '25-Nov-2000'}
-    # @movie = Movie.create!(movie_1)      
-    
-    test01 = params[:movie]
-
-    movie01 = {:title => test01["title"], :rating => test01["rating"],
-      :release_date => "#{test01["release_date(1i)"]}-#{test01["release_date(2i)"]}-#{test01["release_date(3i)"]}"}
-
-    # flash[:notice] = "#{movie_1} #{params[:movie]} #{@movie}"
-
-    @movie = Movie.create!(movie01)
-    flash[:notice] = "#{test01["title"]} was successfully created."
+    @movie = Movie.create!(user_params)
+    flash[:notice] = "#{@movie.title} was successfully created." 
     redirect_to movie_path(@movie)
   end
 
@@ -39,7 +27,6 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find params[:id]
-    permitted = params[:movie].permit(:title,:rating,:release_date)
     permitted = params[:movie].permit(:title,:rating,:release_date,:description)
     @movie.update_attributes!(permitted)
     flash[:notice] = "#{@movie.title} was successfully updated."

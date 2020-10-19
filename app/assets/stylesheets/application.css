@@ -84,3 +84,9 @@
     font-size: 2em;
     font-style: normal;
 }
+#movieInfo {
+  padding: 2ex;
+  position: absolute;
+  border: 2px double grey;
+  background: wheat;
+}

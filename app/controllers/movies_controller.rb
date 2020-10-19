@@ -8,7 +8,8 @@ class MoviesController < ApplicationController
   def show
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
-    # will render app/views/movies/show.html.haml by default
+    render(:partial => 'movie', :object => @movie) if request.xhr?
+    # will render app/views/movies/show.<extension> by default
   end
 
   def new
@@ -67,5 +68,4 @@ class MoviesController < ApplicationController
     flash[:notice] = "All Movie deleted."
     redirect_to movies_path
   end
-      
 end

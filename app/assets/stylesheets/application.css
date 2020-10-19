@@ -75,12 +75,3 @@
     font-weight: bold;
     color: maroon;
   }
-  div#app_banner.banner {
-    margin: 0 0 1em;
-    padding: 10px;
-    background-color: orange;
-    color: Red;
-    border-bottom: 4px solid gold;
-    font-size: 2em;
-    font-style: normal;
-}

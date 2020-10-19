@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   resources :movies
   root :to => redirect('/movies')
+  get 'auth/:provider/callback' , to: "sessions#create" 
+  get 'sign_out', to: "sessions#destroy" , as: 'sign_out'
+  get  'auth/twitter', :as => 'login'
 end

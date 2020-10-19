@@ -1,20 +1,33 @@
-%h1 All Movies
+%h1 All Movies  
+%div
+  - if @current_user 
+    %h1= current_user.name
+
 
 %table#movies
   %thead
     %tr
-      %th number
       %th Movie Title
       %th Rating
       %th Release Date
       %th More Info
+
   %tbody
-    - @movies.each_with_index do |movie, index|
+    - @movies.each do |movie|
       %tr
-        %td= index+1
         %td= movie.title 
         %td= movie.rating
         %td= movie.release_date
         %td= link_to "More about #{movie.title}", movie_path(movie)
+    
+    
 
-= link_to 'Add new movie ', new_movie_path
+= link_to 'Add new movie ', new_movie_path  
+&nbsp;
+= link_to 'Login' , login_path  
+&nbsp;
+= link_to 'Log_out' , sign_out_path 
+
+
+
+

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback' , to: "sessions#create" 
   get 'sign_out', to: "sessions#destroy" , as: 'sign_out'
   get  'auth/twitter', :as => 'login'
+  get  'auth/:provider' => 'sessions#new'
+  post 'all_destroy' => 'movies#all_destroy' , :as => 'all_destroy'
 end

@@ -29,7 +29,9 @@
         %td= link_to "More about #{movie.title}", movie_path(movie)
 
 - if @current_user     
-  = link_to 'Add new movie ', new_movie_path  
+  %div{class: "row"}      
+    %p{class: "column",:style=>"text-align:left;"}= link_to 'Add new movie', new_movie_path
+    %p{class: "column",:style=>"text-align:right;"}= link_to 'Delete all movies', all_destroy_path , :method => "post"
 
 
 

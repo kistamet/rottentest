@@ -61,5 +61,11 @@ class MoviesController < ApplicationController
   def set_auth
     @aurth = session[:omniauth] if session[:omniauth]
   end
+
+  def all_destroy
+    Movie.destroy_all
+    flash[:notice] = "All Movie deleted."
+    redirect_to movies_path
+  end
       
 end

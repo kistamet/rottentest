@@ -32,8 +32,8 @@ class MoviesController < ApplicationController
     # flash[:notice] = "#{movie_1} #{params[:movie]} #{@movie}"
 
     @movie = Movie.create!(movie01)
-    flash[:notice] = "#{test01["title"]} was successfully created."
-    redirect_to movies_path
+    flash[:notice] = "#{@movie.title} was successfully created." 
+    redirect_to movie_path(@movie)
   end
 
   def edit

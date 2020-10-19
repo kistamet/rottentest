@@ -1,16 +1,16 @@
 !!! 5
 %html
   %head
-    %title Rotten Potatoes!
+    %title Rotten Potatoes
     = stylesheet_link_tag 'application'
-    = javascript_include_tag 'application'
+    = javascript_pack_tag 'application'
     = csrf_meta_tags
-
   %body
+    - if flash[:notice]
+      #notice.message= flash[:notice]
+    - elsif flash[:warning]
+      #warning.message= flash[:warning]
     #main
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
-
+      = link_to movies_path do
+        <div id="app_banner" class="banner">RottenPotatoes!</div>
       = yield
